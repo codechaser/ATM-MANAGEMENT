@@ -20,7 +20,7 @@ const InsertCardPage = ({ handleAccountNumber }) => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:8001/api/create-account', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/create-account`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ accno: accountNumber, name, pin, balance }),

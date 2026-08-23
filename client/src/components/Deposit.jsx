@@ -7,7 +7,7 @@ export default function Deposit({ accno, handlebalance , Balance}) {
 
   const [amount, setAmount] = useState(0);
   const navigate = useNavigate();
-  const link = "http://localhost:8001/api/deposit"
+  const link = `${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/deposit`;
 
   const handleDeposit = (event) => {
     if (amount <= 0) {

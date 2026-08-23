@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 export default function ViewTransaction({ accno }) {
   const [transactions, setTransactions] = useState([]);
   const navigate = useNavigate();
-  const link = "http://localhost:8001/api/transaction"
+  const link = `${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/transaction`;
 
   useEffect(() => {
     fetch(`${link}/${accno}`)

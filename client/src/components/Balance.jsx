@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 export default function Balance({ accno }) {
   const [balance, setbalance] = useState(0);
   const navigate = useNavigate();
-  const link = "http://localhost:8001/api/selectuser"
+  const link = `${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/selectuser`;
 
   useEffect(() => {
     fetch(`${link}/${accno}`)

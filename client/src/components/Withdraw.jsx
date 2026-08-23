@@ -8,7 +8,7 @@ export default function Withdraw({ accno }) {
   const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const [balance, setBalance] = useState(0);
-  const link = "http://localhost:8001/api/selectuser"
+  const link = `${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/selectuser`;
 
   useEffect(() => {
     fetch(`${link}/${accno}`)
@@ -69,7 +69,7 @@ export default function Withdraw({ accno }) {
     event.preventDefault();
     const amt = Number(amount);
 
-    fetch(`http://localhost:8001/api/withdraw/${accno}`, {
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/withdraw/${accno}`, {
       method: 'POST',
       body: JSON.stringify({ amt }),
       headers: { 'Content-Type': 'application/json' }

@@ -16,7 +16,7 @@ const App = () => {
     const [validacc, setValidAcc] = useState(false);
     const [validation, setValidation] = useState(false);
     const [balance, setBalance] = useState(0);
-    const link = "http://localhost:8001/api/selectuser"
+    const link = `${import.meta.env.VITE_API_URL || 'http://localhost:8001'}/api/selectuser`;
 
     useEffect(() => {
         if (accno) {
