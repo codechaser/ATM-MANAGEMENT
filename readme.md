@@ -34,7 +34,7 @@ Before running the application, make sure you have the following software instal
 1.  Clone the repository from GitHub:
 
     ```bash
-    git clone https://github.com/iamevs/atm-management.git
+    git clone https://github.com/codechaser/ATM-MANAGEMENT.git
     ```
 
 2.  Navigate to the project directory:
