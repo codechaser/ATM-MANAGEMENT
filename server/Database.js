@@ -1,17 +1,24 @@
-import sql from "mysql2";
+import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+
 dotenv.config();
 
-const connection = sql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
-});
+const mongoURI = process.env.MONGODB_URI;
+const client = new MongoClient(mongoURI);
 
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+let db;
 
-export default connection;
+async function connectDB() {
+  try {
+    await client.connect();
+    db = client.db("atm");
+    console.log("Connected!");
+    return db;
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+    throw err;
+  }
+}
+
+export { connectDB, client };
+export default db;
