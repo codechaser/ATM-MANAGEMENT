@@ -14,6 +14,10 @@ app.use(express.json());
 
 let db;
 
+app.get("/", (req, res) => {
+  res.json({ status: "ok", service: "atm-management-backend" });
+});
+
 // Initialize database connection
 connectDB().then((database) => {
   db = database;
